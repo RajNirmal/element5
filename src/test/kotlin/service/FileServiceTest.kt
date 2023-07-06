@@ -5,7 +5,6 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.assertThrows
 import org.nirmal.data.Seed
 import org.nirmal.service.FileService
-import kotlin.math.exp
 
 class FileServiceTest : DescribeSpec({
     val fileService = FileService()

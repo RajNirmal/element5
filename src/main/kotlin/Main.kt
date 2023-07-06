@@ -1,6 +1,9 @@
 package org.nirmal
 
+import org.nirmal.controller.GameOfLife
+
 
 fun main(args: Array<String>) {
-    println("Hello world from main class!")
+    val gameOfLife = GameOfLife()
+    gameOfLife.startGame()
 }

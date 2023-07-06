@@ -4,26 +4,25 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import org.nirmal.data.Seed
 import org.nirmal.service.GameService
-import kotlin.math.exp
 
 class GameServiceTest : DescribeSpec({
     val gameService = GameService()
     describe("generateNextSeed") {
         mapOf(
-//            Seed(
-//                arrayListOf(
-//                    arrayListOf(1, 1, 0),
-//                    arrayListOf(1, 0, 1),
-//                    arrayListOf(0, 1, 0)
-//                )
-//            ) to
-//                    Seed(
-//                        arrayListOf(
-//                            arrayListOf(1, 1, 0),
-//                            arrayListOf(1, 0, 1),
-//                            arrayListOf(0, 1, 0)
-//                        )
-//                    ),
+            Seed(
+                arrayListOf(
+                    arrayListOf(1, 1, 0),
+                    arrayListOf(1, 0, 1),
+                    arrayListOf(0, 1, 0)
+                )
+            ) to
+                    Seed(
+                        arrayListOf(
+                            arrayListOf(1, 1, 0),
+                            arrayListOf(1, 0, 1),
+                            arrayListOf(0, 1, 0)
+                        )
+                    ),
             Seed(
                 arrayListOf(
                     arrayListOf(0, 1, 0),
@@ -36,6 +35,18 @@ class GameServiceTest : DescribeSpec({
                             arrayListOf(0, 0, 0),
                             arrayListOf(1, 1, 1),
                             arrayListOf(0, 0, 0)
+                        )
+                    ),
+            Seed(
+                arrayListOf(
+                    arrayListOf(1, 1),
+                    arrayListOf(1, 1)
+                )
+            ) to
+                    Seed(
+                        arrayListOf(
+                            arrayListOf(1, 1),
+                            arrayListOf(1, 1)
                         )
                     )
         ).forEach { (inputSeed, outputSeed) ->

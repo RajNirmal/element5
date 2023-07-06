@@ -20,3 +20,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task run(type: JavaExec){
+    mainClass = 'org.nirmal.MainKt'
+    classpath = sourceSets.main.runtimeClasspath
+}

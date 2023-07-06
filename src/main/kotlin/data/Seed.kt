@@ -18,9 +18,16 @@ data class Seed(
                 print(column)
             }
             println()
-
         }
+    }
 
+    fun printDeadOrAlive() {
+        cells.forEach { row ->
+            row.forEach { column ->
+                print(column.let { if(column == 1) 'X' else '-' })
+            }
+            println()
+        }
     }
 
 }
