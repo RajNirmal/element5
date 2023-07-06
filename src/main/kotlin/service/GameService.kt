@@ -9,9 +9,24 @@ class GameService {
         generatedSeed = initialSeed.copy()
         this.initialSeed = initialSeed
 
-        return initialSeed
+        return generateSeed()
     }
 
+    private fun generateSeed(): Seed {
+        for (i in 0 until initialSeed.rowLength) {
+            for (j in 0 until initialSeed.colLength) {
+                val neighbours = aliveNeighboursCount(i, j)
+                println("Neighbour count of $i, $j = ${neighbours}")
+                if (initialSeed.cells[i][j] == CellStatus.ALIVE) {
+                    if (neighbours == 2 || neighbours == 3)
+                        generatedSeed.cells[i][j] = CellStatus.ALIVE;
+                    if (neighbours < 2 || neighbours > 3)
+                        generatedSeed.cells[i][j] = CellStatus.DEAD;
+                }
+            }
+        }
+        return generatedSeed
+    }
 
     fun aliveNeighboursCount(rowIndex: Int, colIndex: Int): Int {
         var neighbourCount = 0
