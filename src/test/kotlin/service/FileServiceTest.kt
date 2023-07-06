@@ -13,9 +13,9 @@ class FileServiceTest : DescribeSpec({
     describe("readFile") {
         it("should read file and return the required data object") {
             val expectedOutput = Seed(arrayListOf(
-                arrayListOf(true, true, false),
-                arrayListOf(true, false, true),
-                arrayListOf(false, true, false)
+                arrayListOf(1, 1, 0),
+                arrayListOf(1, 0, 1),
+                arrayListOf(0, 1, 0)
             ))
 
             val output = fileService.readFile()

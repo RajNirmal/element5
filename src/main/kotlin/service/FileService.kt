@@ -13,17 +13,17 @@ class FileService {
 
     private fun mapFileInputToSeed(fileContent: String): Seed {
         val fileRow = fileContent.split("\n")
-        val col = ArrayList<Boolean>()
-        val row = ArrayList<ArrayList<Boolean>>()
+        val col = ArrayList<Int>()
+        val row = ArrayList<ArrayList<Int>>()
         fileRow.forEach { fileInputString ->
             fileInputString.forEach {
                 col.add(transform(it))
             }
-            row.add(col.clone() as ArrayList<Boolean>) //Clone so the object does not get reset when clear is called
+            row.add(col.clone() as ArrayList<Int>) //Clone so the object does not get reset when clear is called
             col.clear()
         }
         return Seed(row)
     }
 
-    private fun transform(it: Char): Boolean = (it == 'X')
+    private fun transform(it: Char): Int = if (it == 'X') 1 else 0
 }
