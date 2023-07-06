@@ -6,8 +6,8 @@ class GameService {
     private lateinit var generatedSeed: Seed
     private lateinit var initialSeed: Seed
     fun generateNextSeed(initialSeed: Seed): Seed {
-        generatedSeed = initialSeed.copy()
-        this.initialSeed = initialSeed
+        generatedSeed = initialSeed.clone()
+        this.initialSeed = initialSeed.clone()
 
         return generateSeed()
     }
@@ -16,12 +16,17 @@ class GameService {
         for (i in 0 until initialSeed.rowLength) {
             for (j in 0 until initialSeed.colLength) {
                 val neighbours = aliveNeighboursCount(i, j)
-                println("Neighbour count of $i, $j = ${neighbours}")
+//                println("Neighbour count of $i, $j = ${neighbours}")
+
                 if (initialSeed.cells[i][j] == CellStatus.ALIVE) {
                     if (neighbours == 2 || neighbours == 3)
                         generatedSeed.cells[i][j] = CellStatus.ALIVE;
                     if (neighbours < 2 || neighbours > 3)
                         generatedSeed.cells[i][j] = CellStatus.DEAD;
+                }else{
+                    if(neighbours == 3){
+                        generatedSeed.cells[i][j] = CellStatus.ALIVE
+                    }
                 }
             }
         }

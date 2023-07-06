@@ -10,24 +10,40 @@ class GameServiceTest : DescribeSpec({
     val gameService = GameService()
     describe("generateNextSeed") {
         mapOf(
+//            Seed(
+//                arrayListOf(
+//                    arrayListOf(1, 1, 0),
+//                    arrayListOf(1, 0, 1),
+//                    arrayListOf(0, 1, 0)
+//                )
+//            ) to
+//                    Seed(
+//                        arrayListOf(
+//                            arrayListOf(1, 1, 0),
+//                            arrayListOf(1, 0, 1),
+//                            arrayListOf(0, 1, 0)
+//                        )
+//                    ),
             Seed(
                 arrayListOf(
-                    arrayListOf(1, 1, 0),
-                    arrayListOf(1, 0, 1),
-                    arrayListOf(0, 1, 0)
+                    arrayListOf(0, 1, 0),
+                    arrayListOf(0, 1, 0),
+                    arrayListOf(0, 1, 0),
                 )
             ) to
                     Seed(
                         arrayListOf(
-                            arrayListOf(1, 1, 0),
-                            arrayListOf(1, 0, 1),
-                            arrayListOf(0, 1, 0)
+                            arrayListOf(0, 0, 0),
+                            arrayListOf(1, 1, 1),
+                            arrayListOf(0, 0, 0)
                         )
                     )
         ).forEach { (inputSeed, outputSeed) ->
             it("should generate next seed for the given input") {
                 val result = gameService.generateNextSeed(inputSeed)
+                result.print()
                 result shouldBe outputSeed
+
             }
         }
     }
