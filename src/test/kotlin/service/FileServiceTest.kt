@@ -8,6 +8,7 @@ import org.nirmal.service.FileService
 
 class FileServiceTest : DescribeSpec({
     val fileService = FileService()
+    val fileName = "test_input_2.txt"
 
     describe("readFile") {
         it("should read file and return the required data object") {
@@ -17,7 +18,7 @@ class FileServiceTest : DescribeSpec({
                 arrayListOf(0, 1, 0)
             ))
 
-            val output = fileService.readFile()
+            val output = fileService.readFile(fileName)
 
             output.shouldBe(expectedOutput)
         }

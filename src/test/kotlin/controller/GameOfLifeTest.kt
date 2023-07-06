@@ -2,8 +2,10 @@ package controller
 
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
+import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockkConstructor
+import io.mockk.unmockkAll
 import io.mockk.verify
 import org.junit.jupiter.api.assertThrows
 import org.nirmal.controller.GameOfLife
@@ -34,6 +36,11 @@ class GameOfLifeTest : DescribeSpec({
             every { anyConstructed<FileService>().readFile(any()) } returns sampleInputSeed
 
             every { anyConstructed<GameService>().generateNextSeed(any()) } returns sampleOutputSeed
+        }
+
+        afterEach {
+            clearAllMocks()
+            unmockkAll()
         }
 
         it("should invoke fileservice and gameService") {
