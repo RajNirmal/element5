@@ -1,16 +1,18 @@
 package org.nirmal.controller
 
+import org.nirmal.data.Seed
 import org.nirmal.service.FileService
 import org.nirmal.service.GameService
 
 class GameOfLife {
-    val fileService = FileService()
-    val gameService = GameService()
+    private val fileService = FileService()
+    private val gameService = GameService()
 
-    fun startGame(){
+    fun playGame(): Seed {
         val initialSeed = fileService.readFile()
         val nextSeed = gameService.generateNextSeed(initialSeed)
         nextSeed.printDeadOrAlive()
+        return nextSeed
     }
 
 }

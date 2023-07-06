@@ -32,7 +32,7 @@ class GameService {
         return generatedSeed
     }
 
-    fun aliveNeighboursCount(rowIndex: Int, colIndex: Int): Int {
+    private fun aliveNeighboursCount(rowIndex: Int, colIndex: Int): Int {
         var neighbourCount = 0
         val left: Int = colIndex - 1
         val up: Int = rowIndex - 1

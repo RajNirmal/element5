@@ -5,5 +5,12 @@ import org.nirmal.controller.GameOfLife
 
 fun main(args: Array<String>) {
     val gameOfLife = GameOfLife()
-    gameOfLife.startGame()
+    try {
+        gameOfLife.playGame()
+    } catch (exp: Exception) {
+        println("Exception occured while running the code ")
+        println(exp)
+    }
 }
+
+
