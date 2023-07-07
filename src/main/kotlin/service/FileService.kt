@@ -17,7 +17,9 @@ class FileService {
         val row = ArrayList<ArrayList<Int>>()
         fileRow.forEach { fileInputString ->
             fileInputString.forEach {
-                col.add(transform(it))
+                if(!it.isWhitespace()) {
+                    col.add(transform(it))
+                }
             }
             row.add(col.clone() as ArrayList<Int>) //Clone so the object does not get reset when clear is called
             col.clear()
