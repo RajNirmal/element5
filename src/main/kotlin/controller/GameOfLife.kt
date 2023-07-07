@@ -10,7 +10,10 @@ class GameOfLife {
 
     fun playGame(): Seed {
         val initialSeed = fileService.readFile()
+        println("Input from file")
+        initialSeed.printDeadOrAlive()
         val nextSeed = gameService.generateNextSeed(initialSeed)
+        println("Output")
         nextSeed.printDeadOrAlive()
         return nextSeed
     }
